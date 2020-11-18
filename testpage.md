@@ -5,5 +5,5 @@ title: Max Hayashi
 
 # Title
  {% raw %}
-  $a^2$
+  $$a^2$$
  {% endraw %}
