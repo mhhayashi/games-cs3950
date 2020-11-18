@@ -1,4 +1,4 @@
-[Test Page](https://mhhayashi.github.io/games-cs3950/testpage)  
+[The Website (index.md)](https://mhhayashi.github.io/games-cs3950/)  
 
 ## Welcome to GitHub Pages
 
