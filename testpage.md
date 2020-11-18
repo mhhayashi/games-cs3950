@@ -10,8 +10,4 @@ $$a^2$$
 {% endraw %}
   
 Let's get some
-inline math
-{% raw %}
-\(a^2\)
-{% endraw %}
-Woo
+inline math \\(a^2\\) Woo
