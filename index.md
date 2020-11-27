@@ -21,7 +21,7 @@ Before we move on to games, there’s some necessary jargon: we say that a probl
 
 Now that you’ve seen some examples, maybe it will be easier to grasp this counterintuitive definition: **a problem is any mapping we can make from the natural numbers to a boolean (true or false, yes or no)**. [further topics: there’s more than decision problems] [Make this LaTeX definition in the webpage.]
 
-### KLONDIKE: **NP** and **NP**-COMPLETE
+### KLONDIKE: NP and NP-COMPLETE
 
 For Klondike we examined if the game was solvable from an initial state. If you are not familiar with Klondike, it is also known as “classic solitaire” and it is preinstalled on most Windows versions. Of course, the randomness comes from the deck being shuffled and dealt, and due to the nature of the game not all initial board states are solvable, even with perfect gameplay.
 
@@ -55,68 +55,76 @@ $$Latex Definition Here$$
  
 This should provide some intuition why _almost all puzzles are **NP**-complete_ — **NP** are things that are easy (polynomial time) to check the answer to, but hard (exponential time, as you have to check every path) to _find_ the answer to,  and that’s pretty much what a puzzle _is_, right? 
 
+### CHESS: PSPACE
 
-  {% raw %}
-$$a^2$$
+Now for chess. Let’s go back to the beginning, when we were introducing problems: our problem is named WHITE-WINNING, which says, “given this position, does white have a winning move”? As with the previous games, we generalize to an infinite amount of games so we can’t just use a big lookup table. We do this by allowing our chessboard to be any size n x n!
+ 
+The puzzle we considered earlier, Klondike, was **NP**-complete, because puzzles take the form “make a move that solves this puzzle”. (Remember? Easy (polynomial time) to check a solution, hard (exponential time) to solve one.) In chess, it’s not just you anymore — you’re playing against an _adversary_! Chess is “**PSPACE**-complete”, because the hardest problems in **PSPACE** are problems that take the form “make a move such that for every move your opponent makes, you can make a move such that every move your opponent makes…” It’s going to take exponential time to go down every one of those paths, but it will only take polynomial space to keep track of where you are in the path. [[^2]]
+ 
+For completeness’s sake, here’s the formal definition of **PSPACE**:
+
+{% raw %}
+$$Latex Definition Here$$
 {% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
-  
-  {% raw %}
-$$a^2$$
-{% endraw %}
+ 
+Now, let’s look at WHITE-WINNING with fresh eyes, and draw it in the same “computational path” way that we drew KLONDIKE-SOLVE (although in a simplified manner to save space). For simplicity’s sake, we’ll just look at one instance.
+ 
+[WHITE-WINNING drawing, kind of like the KLONDIKE-SOLVE one but more complicated.]
+ 
+You can see two things when the computational paths of WHITE-WINNING are drawn — first, you can see the “for every move my opponent makes, do I have a move...” recursive structure. Second, you can see that checking a _solution_ indeed takes polynomial time — you simply follow the path back up!
+ 
+However, this simplicity of checking assumes a rule in chess called the “fifty-move drawing rule”. WHITE-WINNING is in **PSPACE** if there’s a bottom to these paths [^3], but if states are allowed to loop back on themselves, things can go on indefinitely, and we have to keep track of _all the past states of the path_! [^4] Now WHITE-WINNING still takes exponential time, but now it will take more than polynomial space to keep track of where we are. WHITE-WINNING without this drawing rule is **EXPTIME**-complete, which is a class we will meet while investigating checkers. (Though you might be able to guess what the class means.)
+
+### CHECKERS: EXPTIME
+ 
+<a title="Jud McCranie, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:CheckersStandard.jpg"><img width="512" alt="CheckersStandard" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/CheckersStandard.jpg/512px-CheckersStandard.jpg"></a>
+
+<small><a href="https://commons.wikimedia.org/wiki/File:CheckersStandard.jpg">Jud McCranie</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, via Wikimedia Commons</small>
+ 
+Let’s take a look at checkers. We will examine the 8 x 8 version of English draughts with forced capture. There are many differences between klondike and checkers, but our main goal here is to introduce EXPTIME. 
+ 
+Here’s the main question when it comes to checkers: which player will win? Clearly the better player will be favored, but when both players play perfectly the game is proven to be a draw. This makes checkers a “solved game” (see Further Reading for more about solved games). 
+ 
+First, let’s examine how hard it is to solve a game of checkers. How do we tell  if a move is the correct move? Unfortunately, there’s no fast way to do this. A computer would have to check many possibilities for future moves and examine countless numbers of game states to see if the move is correct. This algorithm is bounded by EXPTIME, meaning that it would take a constant to the power of a polynomial to compute the 100% correct answer. 
+ 
+Here’s the formal definition of EXPTIME:
+[Make this LaTeX definition in the webpage.]
+ 
+Here’s a simple proof that checkers is at most EXPTIME, given an general N by N board:
+Each position has 5 possibilities:
+Empty
+White
+White King
+Black
+Black King
+There are N^2 locations on an N by N board.
+Thus, the total number of possibilities is 5 ^ N ^ 2 = O(2 ^ N ^ 2). Thus, checkers is in EXPTIME, as every one of these positions could be reached in at least one way by normal play, and an algorithm has to go down every one! [further topics: machine learning of games vs. “solving” of games]
+ 
+Before getting to relating EXPTIME to PSPACE and NP, let’s talk numbers.
+ 
+A normal board is 8x8, so let's see what 5 ^ 8 ^ 2 is: 5 * 10^44.
+That is much larger than the number of grains of sand on the Earth: around 8* 10^18.
+More careful analysis reveals that the number of possibilities is actually less than 5 * 10^20, but this is still an order of magnitude or two larger than the number of grains of sand on the Earth.
+ 
+How much would it cost to store the best move for 5* 10^20 game states?
+Suppose 5* 10^20 states can be compressed to 100 positions per byte (this is actually very hard to encode), then you would need 1,000 petabytes of storage:
+15 GB = 15/1000 terabytes: The amount of storage Google gives you for free
+1 terabyte = 1/1000 petabytes: Your computer might have this much storage on a single hard drive
+1 Petabyte: Usually made with 100, 10 TB server hard drives (around $30,000). A small-medium sized media company might have a few  petabytes of storage to store uncompressed video files.
+1000 Petabytes: $50 million storage solution for a supercomputer
+ 
+You might wonder how EXPTIME relates to NP. In the case of NP, given a solution, you can check to see if you win in a reasonable amount of time. In klondike, a victory is a victory. As you are not playing against an opponent, you only need to consider if a move will directly lead to a victory. This is not the case in checkers because you need to ensure that a given move can’t possibly result in a loss. Given a sequence of moves, how do we tell that that sequence is optimal? When it comes to “solving” checkers, a one-move victory is not what we ‘re looking for — we need to find a sequence of moves that makes it impossible for an opponent to win, no matter how well the opponent plays.
+ 
+However, if checkers has a drawing rule, it is also in PSPACE. This is possible, as PSPACE is within EXPTIME. (In plain English: any computation that can be done in polynomial space can be done in exponential time.) In fact, both checkers and chess with drawing rules are in PSPACE, and without drawing rules are in EXPTIME! [further topics: more games that fit this pattern on the wikipedia page.] But exactly why is beyond the scope of this guide. I think we’ve brought you far enough, and it’s time to summarize what we’ve done here and shepherd you out into the larger world of computational complexity.
+
+[intro](#introduction)
   
 [^1]: [Cite: Nature of comp^2.]
 
+[^2]: https://www.ics.uci.edu/~eppstein/cgt/hard.html
 
-[intro](#introduction)
+[^3]: https://www.sciencedirect.com/science/article/pii/0022000083900302?via%3Dihub
+
+[^4]: https://www.sciencedirect.com/science/article/pii/0097316581900169?via%3Dihub
+
+
