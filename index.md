@@ -73,7 +73,7 @@ Now, let’s look at WHITE-WINNING with fresh eyes, and draw it in the same “c
  
 You can see two things when the computational paths of WHITE-WINNING are drawn — first, you can see the “for every move my opponent makes, do I have a move...” recursive structure. Second, you can see that checking a _solution_ indeed takes polynomial time — you simply follow the path back up!
  
-However, this simplicity of checking assumes a rule in chess called the “fifty-move drawing rule”. WHITE-WINNING is in **PSPACE** if there’s a bottom to these paths [^3], but if states are allowed to loop back on themselves, things can go on indefinitely, and we have to keep track of _all the past states of the path_! [^4] Now WHITE-WINNING still takes exponential time, but now it will take more than polynomial space to keep track of where we are. WHITE-WINNING without this drawing rule is **EXPTIME**-complete, which is a class we will meet while investigating checkers. (Though you might be able to guess what the class means.)
+However, this simplicity of checking assumes a rule in chess called the “fifty-move drawing rule”. WHITE-WINNING is in **PSPACE** if there’s a bottom to these paths [[^3]], but if states are allowed to loop back on themselves, things can go on indefinitely, and we have to keep track of _all the past states of the path_! [[^4]] Now WHITE-WINNING still takes exponential time, but now it will take more than polynomial space to keep track of where we are. WHITE-WINNING without this drawing rule is **EXPTIME**-complete, which is a class we will meet while investigating checkers. (Though you might be able to guess what the class means.)
 
 ### CHECKERS: EXPTIME
  
@@ -117,15 +117,15 @@ A normal board is \\(8 \cdot 8\\), so let's see what \\(5^{8^2}\\) is: \\(5 \cdo
 
 [TODO consider changing to 8^2 / 2]
 
-That is much larger than the number of grains of sand on the Earth: around \\(8 \cdot 10 ^ 18\\).[^5]
+That is much larger than the number of grains of sand on the Earth: around \\(8 \cdot 10^{18}\\). [[^5]]
 
 More careful analysis reveals that the number of possibilities for checkers game states is actually less than \\(5 \cdot 10 ^ 20\\), but this is still comparable to the number of grains of sand on the Earth.
  
-How much would it cost to store the best move for \\(5 \cdot 10 ^ 20\\) game states?
+How much would it cost to store the best move for \\(5 \cdot 10^{20}\\) game states?
 
-Suppose \\(5 \cdot 10 ^ 20\\) states can be compressed to 100 positions per byte (this is actually very hard to encode), then you would need 1,000 petabytes of storage:
-* 15 GB = 15/1000 terabytes: The amount of storage Google gives you for free
-* 1 terabyte = 1/1000 petabytes: Your computer might have this much storage on a single hard drive
+Suppose \\(5 \cdot 10^{20}\\) states can be compressed to 100 positions per byte (this is actually very hard to encode), then you would need 1,000 petabytes of storage:
+* 15 GB = \\(\frac{15}{1000}\\) terabytes: The amount of storage Google gives you for free
+* 1 terabyte = \\(\frac{1}{1000}\\) petabytes: Your computer might have this much storage on a single hard drive
 * 1 Petabyte: Usually made with 100, 10 TB server hard drives (around $30,000). A small-medium sized media company might have a few  petabytes of storage to store uncompressed video files.
 * 1000 Petabytes: $50 million storage solution for a supercomputer
  
@@ -142,10 +142,10 @@ Let’s summarize what we’ve done:
 * We showed why klondike, a one-player puzzle, was **NP**-complete and why most puzzles will also fall into this complexity class.
  * We saw the discrepancy between a human and a contemporary algorithm in their ability to solve klondike.
 * Moving on to games, we showed how the presence of an adversary moves the typical game into a higher complexity class than the typical puzzle.
- * Where puzzles are often **NP**, games are often **PSPACE** and **EXPTIME**.
+  * Where puzzles are often **NP**, games are often **PSPACE** and **EXPTIME**.
 * With our analysis of chess, we saw how with a drawing rule complexity was limited to **PSPACE**, whereas without it, the problem WHITE-WINNING (Given this board position, does white have a winning sequence of moves?) is **EXPTIME**-complete.
 * Checkers, which typically has no drawing rules, has the same level of computational complexity as chess does without drawing rules. (That is, **EXPTIME**.)
- * Even a conservative estimate puts solving checkers at requiring more than 1,000 petabytes of storage space, which shows how large numbers can get with faster growing complexity classes. [TODO replace conservative]
+  * Even a conservative estimate puts solving checkers at requiring more than 1,000 petabytes of storage space, which shows how large numbers can get with faster growing complexity classes. [TODO replace conservative]
 
 Below is a collection of the many dangling threads you may have spotted throughout this brief introduction. Each bullet point gives you the resources to pursue a topic outside of the scope of this introduction, as well as a few words on how to interpret what you find.
 
