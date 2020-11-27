@@ -128,7 +128,7 @@ Suppose \\(5 \cdot 10^{20}\\) states can be compressed to 100 positions per byte
 * 15 GB = \\(\frac{15}{1000}\\) terabytes: The amount of storage Google gives you for free
 * 1 terabyte = \\(\frac{1}{1000}\\) petabytes: Your computer might have this much storage on a single hard drive
 * 1 Petabyte: Usually made with 100, 10 TB server hard drives (around $30,000). A small-medium sized media company might have a few  petabytes of storage to store uncompressed video files.
-* 1000 Petabytes: $50 million storage solution for a supercomputer
+* 1000 Petabytes: $50 million storage solution for a supercomputer [[^6]]
  
 You might wonder how **EXPTIME** relates to **NP**. In the case of **NP**, given a solution, you can check to see if you win in a reasonable amount of time. In Klondike, a victory is a victory. As you are not playing against an opponent, you only need to consider if a move will directly lead to a victory. This is not the case in checkers because you need to ensure that a given move can’t possibly result in a loss. Given a sequence of moves, how do we tell that that sequence is optimal? When it comes to “solving” checkers, a one-move victory is not what we ‘re looking for — we need to find a _sequence_ of moves that makes it impossible for an opponent to win, no matter how well the opponent plays.
  
@@ -193,4 +193,4 @@ Finally, here are some additional resources that we crammed in here. Go forth an
 
 [^5]: https://www.npr.org/sections/krulwich/2012/09/17/161096233/which-is-greater-the-number-of-sand-grains-on-earth-or-stars-in-the-sky
 
-
+[^6]: https://www.nextgov.com/emerging-tech/2019/06/massive-exabyte-storage-system-be-built-energys-frontier-supercomputer/157778/
