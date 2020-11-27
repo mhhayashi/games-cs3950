@@ -107,7 +107,7 @@ Each position has 5 possibilities:
 
 There are N^2 locations on an N by N board.
 
-Thus, the total number of possibilities is \\(5^N^2 = O(2^N^2\\). Thus, checkers is in EXPTIME, as _many_ of these positions could be reached in at least one way by normal play, and an algorithm has to go down every one! [further topics: machine learning of games vs. “solving” of games]
+Thus, the total number of possibilities is \\(5^N^2 = O(2^N^2)\\). Thus, checkers is in EXPTIME, as _many_ of these positions could be reached in at least one way by normal play, and an algorithm has to go down every one! [further topics: machine learning of games vs. “solving” of games]
 
 [TODO fix wording above, note the big Oh, not big theta, clarify? (i replaced every one with many)]
  
@@ -117,7 +117,7 @@ A normal board is \\(8 \cdot 8\\), so let's see what \\(5 ^ 8 ^ 2\\) is: \\(5 \c
 
 [TODO consider changing to 8^2 / 2]
 
-That is much larger than the number of grains of sand on the Earth: around 8* 10^18.[TODO cite]
+That is much larger than the number of grains of sand on the Earth: around \\(8 \cdot 10 ^ 18\\).[TODO cite]
 
 More careful analysis reveals that the number of possibilities is actually less than 5 * 10^20, but this is still an order of magnitude or two larger than the number of grains of sand on the Earth.
  
