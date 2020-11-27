@@ -133,7 +133,7 @@ You might wonder how **EXPTIME** relates to **NP**. In the case of **NP**, given
  
 However, if checkers has a drawing rule, it is also in PSPACE. This is possible, as **PSPACE** is within **EXPTIME**. (In plain English: any computation that can be done in polynomial space can be done in exponential time.) In fact, both checkers and chess _with_ drawing rules are in PSPACE, and without drawing rules are in EXPTIME! [further topics: more games that fit this pattern on the wikipedia page.] But exactly why is beyond the scope of this guide. I think we’ve brought you far enough, and it’s time to summarize what we’ve done here and shepherd you out into the larger world of computational complexity.
 
-CONCLUSION, FURTHER TOPICS, RESOURCES
+### CONCLUSION, FURTHER TOPICS, RESOURCES
  
 Let’s summarize what we’ve done:
 
@@ -148,6 +148,33 @@ Let’s summarize what we’ve done:
   * Even a conservative estimate puts solving checkers at requiring more than 1,000 petabytes of storage space, which shows how large numbers can get with faster growing complexity classes. [TODO replace conservative]
 
 Below is a collection of the many dangling threads you may have spotted throughout this brief introduction. Each bullet point gives you the resources to pursue a topic outside of the scope of this introduction, as well as a few words on how to interpret what you find.
+
+* IP
+  * A computational class whose resources don’t exist in reality (all-powerful prover)
+  * We have a different resource now — proof queries! Different from time or space.
+  * IP == PSPACE? First example of an interesting computational complexity proof.
+* Combinatorial game theory [flesh out]
+  * https://combinatorialgametheory.blogspot.com/
+  * http://erikdemaine.org/papers/AlgGameTheory_GONC3/paper.pdf
+  * https://en.wikipedia.org/wiki/Combinatorial_game_theory
+* What is a  solved game?
+  * A solved game is a game where given a state of the game, assuming all players play perfectly, the result can be determined.
+  * A weakly solved game is when the above is true only given the starting state of the game, not any state.
+  * Thoughtful klondike is a solved game, whereas traditional klondike is not due to the cards being initially obscured from the player.
+  * Checkers can be considered the most complex weakly solved game to date.
+    * Why?
+      * High decision complexity: many moves to consider for each turn
+      * Moderate search space: many different possible game state
+  * Forced Capture?
+    * Forced capture means that you must capture as many pieces as possible in your turn. 
+    * This makes computation simpler because it forces players to rapidly remove pieces on the board, leading to a simpler game state.
+  * Contemporary Algorithm
+    * Opening book of moves: compiled from grandmaster games
+    * Deep search algorithm: Looks for available moves, eliminating bad choices
+    * Move evaluation function: estimates a value of a move, instead of solving the value of the move
+    * End game database: All states of 8-10 pieces are stored in a database along with the best moves and outcome. 
+ 
+Finally, here are some additional resources that we crammed in here. Go forth and learn!
 
 
 [intro](#introduction)
