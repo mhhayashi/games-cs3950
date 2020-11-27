@@ -113,24 +113,25 @@ Thus, the total number of possibilities is \\(5^N^2 = O(2^N^2)\\). Thus, checker
  
 Before getting to relating **EXPTIME** to **PSPACE** and **NP**, let’s talk numbers.
  
-A normal board is \\(8 \cdot 8\\), so let's see what \\(5 ^ 8 ^ 2\\) is: \\(5 \cdot 10 ^ 44\\).
+A normal board is \\(8 \cdot 8\\), so let's see what \\(5^8^2\\) is: \\(5 \cdot 10^44\\).
 
 [TODO consider changing to 8^2 / 2]
 
-That is much larger than the number of grains of sand on the Earth: around \\(8 \cdot 10 ^ 18\\).[TODO cite]
+That is much larger than the number of grains of sand on the Earth: around \\(8 \cdot 10 ^ 18\\).[^5]
 
-More careful analysis reveals that the number of possibilities is actually less than 5 * 10^20, but this is still an order of magnitude or two larger than the number of grains of sand on the Earth.
+More careful analysis reveals that the number of possibilities for checkers game states is actually less than \\(5 \cdot 10 ^ 20\\), but this is still comparable to the number of grains of sand on the Earth.
  
-How much would it cost to store the best move for 5* 10^20 game states?
-Suppose 5* 10^20 states can be compressed to 100 positions per byte (this is actually very hard to encode), then you would need 1,000 petabytes of storage:
-15 GB = 15/1000 terabytes: The amount of storage Google gives you for free
-1 terabyte = 1/1000 petabytes: Your computer might have this much storage on a single hard drive
-1 Petabyte: Usually made with 100, 10 TB server hard drives (around $30,000). A small-medium sized media company might have a few  petabytes of storage to store uncompressed video files.
-1000 Petabytes: $50 million storage solution for a supercomputer
+How much would it cost to store the best move for \\(5 \cdot 10 ^ 20\\) game states?
+
+Suppose \\(5 \cdot 10 ^ 20\\) states can be compressed to 100 positions per byte (this is actually very hard to encode), then you would need 1,000 petabytes of storage:
+* 15 GB = 15/1000 terabytes: The amount of storage Google gives you for free
+* 1 terabyte = 1/1000 petabytes: Your computer might have this much storage on a single hard drive
+* 1 Petabyte: Usually made with 100, 10 TB server hard drives (around $30,000). A small-medium sized media company might have a few  petabytes of storage to store uncompressed video files.
+* 1000 Petabytes: $50 million storage solution for a supercomputer
  
-You might wonder how EXPTIME relates to NP. In the case of NP, given a solution, you can check to see if you win in a reasonable amount of time. In klondike, a victory is a victory. As you are not playing against an opponent, you only need to consider if a move will directly lead to a victory. This is not the case in checkers because you need to ensure that a given move can’t possibly result in a loss. Given a sequence of moves, how do we tell that that sequence is optimal? When it comes to “solving” checkers, a one-move victory is not what we ‘re looking for — we need to find a sequence of moves that makes it impossible for an opponent to win, no matter how well the opponent plays.
+You might wonder how **EXPTIME** relates to **NP**. In the case of **NP**, given a solution, you can check to see if you win in a reasonable amount of time. In Klondike, a victory is a victory. As you are not playing against an opponent, you only need to consider if a move will directly lead to a victory. This is not the case in checkers because you need to ensure that a given move can’t possibly result in a loss. Given a sequence of moves, how do we tell that that sequence is optimal? When it comes to “solving” checkers, a one-move victory is not what we ‘re looking for — we need to find a _sequence_ of moves that makes it impossible for an opponent to win, no matter how well the opponent plays.
  
-However, if checkers has a drawing rule, it is also in PSPACE. This is possible, as PSPACE is within EXPTIME. (In plain English: any computation that can be done in polynomial space can be done in exponential time.) In fact, both checkers and chess with drawing rules are in PSPACE, and without drawing rules are in EXPTIME! [further topics: more games that fit this pattern on the wikipedia page.] But exactly why is beyond the scope of this guide. I think we’ve brought you far enough, and it’s time to summarize what we’ve done here and shepherd you out into the larger world of computational complexity.
+However, if checkers has a drawing rule, it is also in PSPACE. This is possible, as **PSPACE** is within **EXPTIME**. (In plain English: any computation that can be done in polynomial space can be done in exponential time.) In fact, both checkers and chess _with_ drawing rules are in PSPACE, and without drawing rules are in EXPTIME! [further topics: more games that fit this pattern on the wikipedia page.] But exactly why is beyond the scope of this guide. I think we’ve brought you far enough, and it’s time to summarize what we’ve done here and shepherd you out into the larger world of computational complexity.
 
 [intro](#introduction)
   
@@ -141,5 +142,7 @@ However, if checkers has a drawing rule, it is also in PSPACE. This is possible,
 [^3]: https://www.sciencedirect.com/science/article/pii/0022000083900302?via%3Dihub
 
 [^4]: https://www.sciencedirect.com/science/article/pii/0097316581900169?via%3Dihub
+
+[^5]: https://www.npr.org/sections/krulwich/2012/09/17/161096233/which-is-greater-the-number-of-sand-grains-on-earth-or-stars-in-the-sky
 
 
