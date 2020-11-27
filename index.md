@@ -1,6 +1,7 @@
 ---
 layout: base
 title: Complexity Classes of Games
+description: An Introduction To Complexity Classes
 ---
 
 ## Introduction 
