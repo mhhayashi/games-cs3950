@@ -7,7 +7,7 @@ title: Complexity Classes of Games
 
 _Computational complexity is the study of how difficult problems are._ In the same way that physics is not about building better rockets, but understanding the natural principles behind rocket construction, computational complexity is not about building better algorithms! Rather, it’s studying problems _themselves_ as separate, natural entities. [[^1]] Broadly speaking, we assign problems to classes denoted by inscrutable series of capital letters (**P, NP, PSPACE, EXPTIME, BQP**) depending on how quickly the problem becomes stupidly difficult to solve as you try more and more complicated versions of it. That difficulty is given in terms of the resources a computer would have to use. There are more complicated resources (like communicating with other computers) but here we’ll just think about time and space.
 
-### What is a problem?
+## What is a problem?
 
 Let’s look at a simple example problem: “Given a number, is that number prime?” This is an interesting problem for a computer to solve because there’s an infinite amount of numbers. “Given a number less than twenty, is that number prime?” is not — the computer could just store a look-up table that tells it whether the number is prime or not, and solve it in no time! A wise man once said that “an algorithm is a finite solution to an infinite problem”.
 
@@ -21,7 +21,7 @@ Before we move on to games, there’s some necessary jargon: we say that a probl
 
 Now that you’ve seen some examples, maybe it will be easier to grasp this counterintuitive definition: **a problem is any mapping we can make from the natural numbers to a boolean (true or false, yes or no)**. [further topics: there’s more than decision problems] [Make this LaTeX definition in the webpage.]
 
-### KLONDIKE: NP and NP-COMPLETE
+## KLONDIKE: NP and NP-COMPLETE
 
 For Klondike we examined if the game was solvable from an initial state. If you are not familiar with Klondike, it is also known as “classic solitaire” and it is preinstalled on most Windows versions. Of course, the randomness comes from the deck being shuffled and dealt, and due to the nature of the game not all initial board states are solvable, even with perfect gameplay.
 
@@ -55,7 +55,7 @@ $$Latex Definition Here$$
  
 This should provide some intuition why _almost all puzzles are **NP**-complete_ — **NP** are things that are easy (polynomial time) to check the answer to, but hard (exponential time, as you have to check every path) to _find_ the answer to,  and that’s pretty much what a puzzle _is_, right? 
 
-### CHESS: PSPACE
+## CHESS: PSPACE
 
 Now for chess. Let’s go back to the beginning, when we were introducing problems: our problem is named WHITE-WINNING, which says, “given this position, does white have a winning move”? As with the previous games, we generalize to an infinite amount of games so we can’t just use a big lookup table. We do this by allowing our chessboard to be any size n x n!
  
@@ -75,7 +75,7 @@ You can see two things when the computational paths of WHITE-WINNING are drawn �
  
 However, this simplicity of checking assumes a rule in chess called the “fifty-move drawing rule”. WHITE-WINNING is in **PSPACE** if there’s a bottom to these paths [[^3]], but if states are allowed to loop back on themselves, things can go on indefinitely, and we have to keep track of _all the past states of the path_! [[^4]] Now WHITE-WINNING still takes exponential time, but now it will take more than polynomial space to keep track of where we are. WHITE-WINNING without this drawing rule is **EXPTIME**-complete, which is a class we will meet while investigating checkers. (Though you might be able to guess what the class means.)
 
-### CHECKERS: EXPTIME
+## CHECKERS: EXPTIME
  
 <a title="Jud McCranie, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:CheckersStandard.jpg"><img width="512" alt="CheckersStandard" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/CheckersStandard.jpg/512px-CheckersStandard.jpg"></a>
 
@@ -133,7 +133,7 @@ You might wonder how **EXPTIME** relates to **NP**. In the case of **NP**, given
  
 However, if checkers has a drawing rule, it is also in PSPACE. This is possible, as **PSPACE** is within **EXPTIME**. (In plain English: any computation that can be done in polynomial space can be done in exponential time.) In fact, both checkers and chess _with_ drawing rules are in PSPACE, and without drawing rules are in EXPTIME! [further topics: more games that fit this pattern on the wikipedia page.] But exactly why is beyond the scope of this guide. I think we’ve brought you far enough, and it’s time to summarize what we’ve done here and shepherd you out into the larger world of computational complexity.
 
-### CONCLUSION, FURTHER TOPICS, RESOURCES
+## CONCLUSION, FURTHER TOPICS, RESOURCES
  
 Let’s summarize what we’ve done:
 
@@ -165,6 +165,9 @@ Below is a collection of the many dangling threads you may have spotted througho
     * Why?
       * High decision complexity: many moves to consider for each turn
       * Moderate search space: many different possible game state
+
+### Checkers Specific Topics
+
   * Forced Capture?
     * Forced capture means that you must capture as many pieces as possible in your turn. 
     * This makes computation simpler because it forces players to rapidly remove pieces on the board, leading to a simpler game state.
