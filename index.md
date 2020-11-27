@@ -13,7 +13,7 @@ Let’s look at a simple example problem: “Given a number, is that number prim
  
 This problem, which we’ll give the name PRIME, becomes only a _little_ more difficult as each of its values increases. That is, determining whether 1736598123657 is prime is certainly difficult, but it doesn’t take much longer than determining whether 1736598123653 is prime. Problems like this we call **P**, which stands for polynomial time — formally, if a problem is in the class **P**, solving the problem takes polynomially more time as the input increases. \\(c \cdot n^{x}\\) [Make this LaTeX definition in the webpage.] We’ll get to some other classes later.
 
-![](img1.jpeg =250x)
+![](img1.jpeg)
 
 {% raw %}
 $$a^2$$
