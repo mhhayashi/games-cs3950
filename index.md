@@ -80,30 +80,45 @@ However, this simplicity of checking assumes a rule in chess called the “fifty
 <a title="Jud McCranie, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:CheckersStandard.jpg"><img width="512" alt="CheckersStandard" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/CheckersStandard.jpg/512px-CheckersStandard.jpg"></a>
 
 <small><a href="https://commons.wikimedia.org/wiki/File:CheckersStandard.jpg">Jud McCranie</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, via Wikimedia Commons</small>
+
+[TODO attributions are ugly, take your own picture]
  
-Let’s take a look at checkers. We will examine the 8 x 8 version of English draughts with forced capture. There are many differences between klondike and checkers, but our main goal here is to introduce EXPTIME. 
+Let’s take a look at checkers. We will examine the 8 x 8 version of English draughts with forced capture. [Tag further reading] There are many differences between klondike and checkers, but our main goal here is to introduce **EXPTIME**. 
  
 Here’s the main question when it comes to checkers: which player will win? Clearly the better player will be favored, but when both players play perfectly the game is proven to be a draw. This makes checkers a “solved game” (see Further Reading for more about solved games). 
  
-First, let’s examine how hard it is to solve a game of checkers. How do we tell  if a move is the correct move? Unfortunately, there’s no fast way to do this. A computer would have to check many possibilities for future moves and examine countless numbers of game states to see if the move is correct. This algorithm is bounded by EXPTIME, meaning that it would take a constant to the power of a polynomial to compute the 100% correct answer. 
+First, let’s examine how hard it is to solve a game of checkers. How do we tell  if a move is the correct move? Unfortunately, there’s no fast way to do this. A computer would have to check many possibilities for future moves and examine countless numbers of game states to see if the move is correct. This algorithm is bounded by **EXPTIME**, meaning that it would take a constant to the power of a polynomial to compute the 100% correct answer. 
  
 Here’s the formal definition of EXPTIME:
-[Make this LaTeX definition in the webpage.]
+
+{% raw %}
+$$Latex Definition Here$$
+{% endraw %}
  
-Here’s a simple proof that checkers is at most EXPTIME, given an general N by N board:
+Here’s a simple proof that checkers is at most **EXPTIME**, given an general N by N board:
+
 Each position has 5 possibilities:
-Empty
-White
-White King
-Black
-Black King
+
+1. Empty
+2. White
+3. White King
+4. Black
+5. Black King
+
 There are N^2 locations on an N by N board.
-Thus, the total number of possibilities is 5 ^ N ^ 2 = O(2 ^ N ^ 2). Thus, checkers is in EXPTIME, as every one of these positions could be reached in at least one way by normal play, and an algorithm has to go down every one! [further topics: machine learning of games vs. “solving” of games]
+
+Thus, the total number of possibilities is \\(5^N^2 = O(2^N^2\\). Thus, checkers is in EXPTIME, as _many_ of these positions could be reached in at least one way by normal play, and an algorithm has to go down every one! [further topics: machine learning of games vs. “solving” of games]
+
+[TODO fix wording above, note the big Oh, not big theta, clarify? (i replaced every one with many)]
  
-Before getting to relating EXPTIME to PSPACE and NP, let’s talk numbers.
+Before getting to relating **EXPTIME** to **PSPACE** and **NP**, let’s talk numbers.
  
-A normal board is 8x8, so let's see what 5 ^ 8 ^ 2 is: 5 * 10^44.
-That is much larger than the number of grains of sand on the Earth: around 8* 10^18.
+A normal board is \\(8 \cdot 8\\), so let's see what \\(5 ^ 8 ^ 2\\) is: \\(5 \cdot 10 ^ 44\\).
+
+[TODO consider changing to 8^2 / 2]
+
+That is much larger than the number of grains of sand on the Earth: around 8* 10^18.[TODO cite]
+
 More careful analysis reveals that the number of possibilities is actually less than 5 * 10^20, but this is still an order of magnitude or two larger than the number of grains of sand on the Earth.
  
 How much would it cost to store the best move for 5* 10^20 game states?
