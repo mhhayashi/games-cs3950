@@ -19,6 +19,8 @@ Before we move on to games, there’s some necessary jargon: we say that a probl
 
 [IMG HERE]
 
+Now that you’ve seen some examples, maybe it will be easier to grasp this counterintuitive definition: **a problem is any mapping we can make from the natural numbers to a boolean (true or false, yes or no)**. [further topics: there’s more than decision problems] [Make this LaTeX definition in the webpage.]
+
 
 
 {% raw %}
