@@ -133,6 +133,23 @@ You might wonder how **EXPTIME** relates to **NP**. In the case of **NP**, given
  
 However, if checkers has a drawing rule, it is also in PSPACE. This is possible, as **PSPACE** is within **EXPTIME**. (In plain English: any computation that can be done in polynomial space can be done in exponential time.) In fact, both checkers and chess _with_ drawing rules are in PSPACE, and without drawing rules are in EXPTIME! [further topics: more games that fit this pattern on the wikipedia page.] But exactly why is beyond the scope of this guide. I think we’ve brought you far enough, and it’s time to summarize what we’ve done here and shepherd you out into the larger world of computational complexity.
 
+CONCLUSION, FURTHER TOPICS, RESOURCES
+ 
+Let’s summarize what we’ve done:
+
+* We introduced _decision problems_ as, rather unintuitively, mappings from _problem instances_ to natural numbers to booleans.
+* “An algorithm is a finite solution to an infinite problem” — in order to talk about games in terms of computational complexity, we have to find generalizations of games that get more complex. (E.g., chess played on an _n x n_ board.)
+* We showed why klondike, a one-player puzzle, was **NP**-complete and why most puzzles will also fall into this complexity class.
+ * We saw the discrepancy between a human and a contemporary algorithm in their ability to solve klondike.
+* Moving on to games, we showed how the presence of an adversary moves the typical game into a higher complexity class than the typical puzzle.
+ * Where puzzles are often **NP**, games are often **PSPACE** and **EXPTIME**.
+* With our analysis of chess, we saw how with a drawing rule complexity was limited to **PSPACE**, whereas without it, the problem WHITE-WINNING (Given this board position, does white have a winning sequence of moves?) is **EXPTIME**-complete.
+* Checkers, which typically has no drawing rules, has the same level of computational complexity as chess does without drawing rules. (That is, **EXPTIME**.)
+ * Even a conservative estimate puts solving checkers at requiring more than 1,000 petabytes of storage space, which shows how large numbers can get with faster growing complexity classes. [TODO replace conservative]
+
+Below is a collection of the many dangling threads you may have spotted throughout this brief introduction. Each bullet point gives you the resources to pursue a topic outside of the scope of this introduction, as well as a few words on how to interpret what you find.
+
+
 [intro](#introduction)
   
 [^1]: [Cite: Nature of comp^2.]
