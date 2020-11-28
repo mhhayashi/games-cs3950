@@ -132,7 +132,9 @@ Suppose \\(5 \cdot 10^{20}\\) states can be compressed to 100 positions per byte
  
 You might wonder how **EXPTIME** relates to **NP**. In the case of **NP**, given a solution, you can check to see if you win in a reasonable amount of time. In Klondike, a victory is a victory. As you are not playing against an opponent, you only need to consider if a move will directly lead to a victory. This is not the case in checkers because you need to ensure that a given move can’t possibly result in a loss. Given a sequence of moves, how do we tell that that sequence is optimal? When it comes to “solving” checkers, a one-move victory is not what we ‘re looking for — we need to find a _sequence_ of moves that makes it impossible for an opponent to win, no matter how well the opponent plays.
  
-However, if checkers has a drawing rule, it is also in PSPACE. This is possible, as **PSPACE** is within **EXPTIME**. (In plain English: any computation that can be done in polynomial space can be done in exponential time.) In fact, both checkers and chess _with_ drawing rules are in PSPACE, and without drawing rules are in EXPTIME! [further topics: more games that fit this pattern on the wikipedia page.] But exactly why is beyond the scope of this guide. I think we’ve brought you far enough, and it’s time to summarize what we’ve done here and shepherd you out into the larger world of computational complexity.
+[ACTUALLY UNPROVEN?!?!? (delete this)] However, if checkers has a drawing rule, it is also in PSPACE. This is possible, as **PSPACE** is within **EXPTIME**. (In plain English: any computation that can be done in polynomial space can be done in exponential time.) In fact, both checkers and chess _with_ drawing rules are in PSPACE, and without drawing rules are in EXPTIME! [further topics: more games that fit this pattern on the wikipedia page.] But exactly why is beyond the scope of this guide. I think we’ve brought you far enough, and it’s time to summarize what we’ve done here and shepherd you out into the larger world of computational complexity.
+
+**PSPACE** is within **EXPTIME**. (In plain English: any computation that can be done in polynomial space can be done in exponential time.) Does this mean checkers is harder than chess? Maybe. It's possible that with a rule similar to the 50 move rule than checkers can be proven to also be in **PSPACE**. It's also possible that checkers was in **PSPACE** all along. However, we currently do not know of any proofs with a reasonable rule. One rule that can be used to show that checkers is in PSPACE is the _always-jumping_ rule, where you immediately lose if you cannot capture an enemy piece (obviously the starting position would have to be different). [[^7]] [Transition?]
 
 ## CONCLUSION, FURTHER TOPICS, RESOURCES
  
@@ -194,3 +196,5 @@ Finally, here are some additional resources that we crammed in here. Go forth an
 [^5]: https://www.npr.org/sections/krulwich/2012/09/17/161096233/which-is-greater-the-number-of-sand-grains-on-earth-or-stars-in-the-sky
 
 [^6]: https://www.nextgov.com/emerging-tech/2019/06/massive-exabyte-storage-system-be-built-energys-frontier-supercomputer/157778/
+
+[^7]: Always Jumping https://erikdemaine.org/papers/Checkers_MOVES2017/paper.pdf
