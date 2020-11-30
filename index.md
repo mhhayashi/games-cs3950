@@ -26,13 +26,12 @@ Now that you’ve seen some examples, maybe it will be easier to grasp this coun
 
 For Klondike we examined if the game was solvable from an initial state. If you are not familiar with Klondike, it is also known as “classic solitaire” and it is preinstalled on most Windows versions. Of course, the randomness comes from the deck being shuffled and dealt, and due to the nature of the game not all initial board states are solvable, even with perfect gameplay.
 
-The runtime of contemporary algorithms to find if a game of klondike is solvable is in the class known as **NP**. In fact, it is _**NP**-complete_, which means it is at least as hard as any problem in **NP**. [further topics: completeness and reduction] It’s the case for **NP**-complete puzzles that determining whether an instance is solvable is the same as going through the motions and solving it! More on this later.
+The runtime of contemporary algorithms to find if a game of klondike is solvable is in the class known as **NP**. In fact, it is _**NP**-complete_, which means it is at least as hard as any problem in **NP**. [further topics: completeness and reduction] It’s the case for **NP**-complete puzzles that determining whether an instance is solvable is the same as going through the motions and solving it [[^8]]! More on this later. 
 
-Interestingly, humans are very, very bad at this game when compared to computers.  Modern estimates place between 70-80% of initial configurations as being solvable. Human abilities in this game are far lower. There exists a variant of pyramid solitaire known as “Thoughtful Solitaire”. In this variation, the player is able to see all cards which would normally be hidden. In trials with experts, only approximately 36.6% of games were solved, out of a sample size of 2,000. Humans will fail to solve a solvable game about half of the time, this is when they are given access to all cards which would normally be hidden.
+Interestingly, humans are very, very bad at this game when compared to computers.  Modern estimates place between 70-80% of initial configurations as being solvable [[^9]]. Human abilities in this game are far lower. There exists a variant of pyramid solitaire known as “Thoughtful Solitaire”. In this variation, the player is able to see all cards which would normally be hidden. In trials with experts, only approximately 36.6% of games were solved, out of a sample size of 2,000. Humans will fail to solve a solvable game about half of the time, this is when they are given access to all cards which would normally be hidden.
 
 A human, even knowing all the cards, cannot plan far enough ahead to properly win the game, so this leads to the greatly decreased rate of successful solutions compared to the rate calculated by contemporary algorithms, which can keep track of all possible “routes” as easily as it can multiply two absurdly large numbers.
 
-[NEED TO ADD CITATIONS]
 
 But why is Klondike **NP**-complete, and what is the class **NP**?
  
@@ -196,3 +195,7 @@ Finally, here are some additional resources that we crammed in here. Go forth an
 [^6]: https://www.nextgov.com/emerging-tech/2019/06/massive-exabyte-storage-system-be-built-energys-frontier-supercomputer/157778/
 
 [^7]: Always Jumping https://erikdemaine.org/papers/Checkers_MOVES2017/paper.pdf
+
+[^8]: https://core.ac.uk/reader/82132940
+
+[^9]: https://arxiv.org/pdf/1906.12314.pdf
