@@ -119,7 +119,7 @@ A normal board is \\(8 \cdot 8\\), so let's see what \\(5^{8^2}\\) is: \\(5 \cdo
 
 That is much larger than the number of grains of sand on the Earth: around \\(8 \cdot 10^{18}\\). [[^5]]
 
-More careful analysis reveals that the number of possibilities for checkers game states is actually less than \\(5 \cdot 10 ^ 20\\) [[^11]], but this is still comparable to the number of grains of sand on the Earth.
+More careful analysis reveals that the number of possibilities for checkers game states is actually less than \\(5 \cdot 10 ^{20}\\) [[^11]], but this is still comparable to the number of grains of sand on the Earth.
  
 How much would it cost to store the best move for \\(5 \cdot 10^{20}\\) game states?
 
