@@ -119,7 +119,7 @@ A normal board is \\(8 \cdot 8\\), so let's see what \\(5^{8^2}\\) is: \\(5 \cdo
 
 That is much larger than the number of grains of sand on the Earth: around \\(8 \cdot 10^{18}\\). [[^5]]
 
-More careful analysis reveals that the number of possibilities for checkers game states is actually less than \\(5 \cdot 10 ^ 20\\), but this is still comparable to the number of grains of sand on the Earth.
+More careful analysis reveals that the number of possibilities for checkers game states is actually less than \\(5 \cdot 10 ^ 20\\) [[^11]], but this is still comparable to the number of grains of sand on the Earth.
  
 How much would it cost to store the best move for \\(5 \cdot 10^{20}\\) game states?
 
@@ -171,7 +171,7 @@ Below is a collection of the many dangling threads you may have spotted througho
   * Forced Capture?
     * Forced capture means that you must capture as many pieces as possible in your turn. 
     * This makes computation simpler because it forces players to rapidly remove pieces on the board, leading to a simpler game state.
-  * Contemporary Algorithm
+  * Contemporary Algorithm [[^10]]
     * Opening book of moves: compiled from grandmaster games
     * Deep search algorithm: Looks for available moves, eliminating bad choices
     * Move evaluation function: estimates a value of a move, instead of solving the value of the move
@@ -199,3 +199,7 @@ Finally, here are some additional resources that we crammed in here. Go forth an
 [^8]: https://core.ac.uk/reader/82132940
 
 [^9]: https://arxiv.org/pdf/1906.12314.pdf
+
+[^10]: Chinook https://webdocs.cs.ualberta.ca/~chinook/
+
+[^11]: Checkers Is Solved https://science.sciencemag.org/content/317/5844/1518
