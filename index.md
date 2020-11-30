@@ -12,15 +12,23 @@ _Computational complexity is the study of how difficult problems are._ In the sa
 
 Let’s look at a simple example problem: “Given a number, is that number prime?” This is an interesting problem for a computer to solve because there’s an infinite amount of numbers. “Given a number less than twenty, is that number prime?” is not — the computer could just store a look-up table that tells it whether the number is prime or not, and solve it in no time! A wise man once said that “an algorithm is a finite solution to an infinite problem”.
 
-This problem, which we’ll give the name PRIME, becomes only a _little_ more difficult as each of its values increases. That is, determining whether 1736598123657 is prime is certainly difficult, but it doesn’t take much longer than determining whether 1736598123653 is prime. Problems like this we call **P**, which stands for polynomial time — formally, if a problem is in the class **P**, solving the problem takes polynomially more time as the input increases. \\(c \cdot n^{x}\\) [Make this LaTeX definition in the webpage.] We’ll get to some other classes later.
+This problem, which we’ll give the name PRIME, becomes only a _little_ more difficult as each of its values increases. That is, determining whether 1736598123657 is prime is certainly difficult, but it doesn’t take much longer than determining whether 1736598123653 is prime.
 
-![](img1.jpeg)
+![](img/PRIME.png)
+
+Problems like this we call **P**, which stands for polynomial time — formally, if a problem is in the class **P**, solving the problem takes polynomially more time as the input increases. Here's a formal definition:
+
+{% raw %}
+$$P = \bigcup_k TIME(n^k)$$
+{% endraw %}
+
+(\\(TIME(f(x))\\) is just the set of the problems that take \\(f(x)\\) more time to solve as \\(x\\) increases.)
 
 Before we move on to games, there’s some necessary jargon: we say that a problem has an infinite number of _instances_. In the case of PRIME, each instance is a number. In chess, our problem might be called WHITE-WINNING, which asks “given this initial position, does white have a _sure-fire_ way to win the game?” An _instance_ of WHITE-WINNING would be an arrangement of pieces on the board. So that we have an infinite number of instances, we generalize our chessboard from 8 squares by 8 to any number n squares by n. This allows us to learn more about chess in the 8 by 8 case by learning how much harder chess gets when you make it bigger. WHITE-WINNING is not in **P** — we’ll see what it is in later on.
 
-[IMG HERE]
+![](img/WHITE-WINNING.png)
 
-Now that you’ve seen some examples, maybe it will be easier to grasp this counterintuitive definition: **a problem is any mapping we can make from the natural numbers to a boolean (true or false, yes or no)**. [further topics: there’s more than decision problems] [Make this LaTeX definition in the webpage.]
+Now that you’ve seen some examples, maybe it will be easier to grasp this counterintuitive definition: **a problem is any mapping we can make from the natural numbers to a boolean (true or false, yes or no)**.
 
 ## KLONDIKE: NP and NP-COMPLETE
 
@@ -37,22 +45,30 @@ But why is Klondike **NP**-complete, and what is the class **NP**?
  
 Let’s take another look at the class **P**. Remember the problem PRIME? Well, one way of drawing the instances is like this:
 
-[IMG HERE]
+![](img/PRIME_paths.png)
 
 Where the length of the lines might indicate the length of the computation to figure out whether the number is prime. (One way is to try to divide by every number less than it!)
  
 Let’s name the problem of whether or not an initial condition of Klondike is solvable KLONDIKE-SOLVE. That initial condition will be our _problem instance_. Then, there’s lots of ways to generalize Klondike to have an infinite number of instances — let’s say we keep increasing the number of suits past four, or the number of ranks past 13. (2 through 10, Jack, Queen, King, Ace.) To check whether a game is solvable, we can’t just do something simple like divide by every instance less than it — we have to play through each game! The computational path might look like this. (This is an exercise for you, dear reader: _imagine_ the instances of the solitaire games that are being mapped to each natural number, as the author doesn’t feel like drawing them! What might it look like when the number of cards changes? Make your own solitaire generalization.)
 
-[IMG HERE]
+![](img/KLONDIKE-SOLVE_paths.png)
 
 KLONDIKE-SOLVE asks, “does at least one of the ways of playing the game, starting from this instance, end in a solved game?” For instance #1437, this is true — for #1438, there is _no way_ to play the game or make choices such that you win. (Them’s the breaks!)
 
-Then, we can look at the formal definition of **NP**:
+Now we can look at the formal definition of **NP**:
 
 {% raw %}
-$$Latex Definition Here$$
+$$NP = \bigcup_k NTIME(n^k)$$
 {% endraw %}
- 
+
+Remember \\(TIME(f(x))\\)? Well, that's all of the problems whose problems get \\(f(x)\\) harder for a deterministic computer to do as \\(x\\) increases.
+You can think of a deterministic computer as a computer that can only follow one path — just like the computer that you're reading this on.
+\\(NTIME(f(x))\\) is a class for computers with the godlike power to go down multiple paths at once, and then select the one it wants at the end!
+Although these computers don't exist (and this is *not* what a quantum computer is — that's a whole 'nother deal) we find it useful to study the problems that they might be able to solve.
+
+Anyway, this means that **NP** is the class of all problems that our godlike computer could solve in polynomial time, as it can "split".
+Our regular, deterministic computers can't split, and so problems that are in **NP** that aren't also in **P** take more than polynomial time.
+
 This should provide some intuition why _almost all puzzles are **NP**-complete_ — **NP** are things that are easy (polynomial time) to check the answer to, but hard (exponential time, as you have to check every path) to _find_ the answer to,  and that’s pretty much what a puzzle _is_, right? 
 
 ## CHESS: PSPACE
@@ -61,15 +77,16 @@ Now for chess. Let’s go back to the beginning, when we were introducing proble
  
 The puzzle we considered earlier, Klondike, was **NP**-complete, because puzzles take the form “make a move that solves this puzzle”. (Remember? Easy (polynomial time) to check a solution, hard (exponential time) to solve one.) In chess, it’s not just you anymore — you’re playing against an _adversary_! Chess is “**PSPACE**-complete”, because the hardest problems in **PSPACE** are problems that take the form “make a move such that for every move your opponent makes, you can make a move such that every move your opponent makes…” It’s going to take exponential time to go down every one of those paths, but it will only take polynomial space to keep track of where you are in the path. [[^2]]
  
-For completeness’s sake, here’s the formal definition of **PSPACE**:
+For completeness’s sake, here’s the formal definition of **PSPACE**.
+The details aren't super important — see if you can suss out the finer points from the definitions of **P** and **NP** above.
 
 {% raw %}
-$$Latex Definition Here$$
+$$PSPACE = \bigcup_k SPACE(n^k)$$
 {% endraw %}
  
 Now, let’s look at WHITE-WINNING with fresh eyes, and draw it in the same “computational path” way that we drew KLONDIKE-SOLVE (although in a simplified manner to save space). For simplicity’s sake, we’ll just look at one instance.
  
-[WHITE-WINNING drawing, kind of like the KLONDIKE-SOLVE one but more complicated.]
+![](img/WHITE-WINNING_paths.png)
  
 You can see two things when the computational paths of WHITE-WINNING are drawn — first, you can see the “for every move my opponent makes, do I have a move...” recursive structure. Second, you can see that checking a _solution_ indeed takes polynomial time — you simply follow the path back up!
  
@@ -89,11 +106,13 @@ Here’s the main question when it comes to checkers: which player will win? Cle
  
 First, let’s examine how hard it is to solve a game of checkers. How do we tell  if a move is the correct move? Unfortunately, there’s no fast way to do this. A computer would have to check many possibilities for future moves and examine countless numbers of game states to see if the move is correct. This algorithm is bounded by **EXPTIME**, meaning that it would take a constant to the power of a polynomial to compute the 100% correct answer. 
  
-Here’s the formal definition of EXPTIME:
+Here’s the formal definition of EXPTIME.
 
 {% raw %}
-$$Latex Definition Here$$
+$$EXPTIME = \bigcup_k TIME(2^{n^k})$$
 {% endraw %}
+
+This means that it takes a normal, deterministic computer exponential time to solve this problem.
  
 Here’s a simple proof that checkers is at most **EXPTIME**, given an general N by N board:
 
@@ -145,19 +164,11 @@ Let’s summarize what we’ve done:
   * Where puzzles are often **NP**, games are often **PSPACE** and **EXPTIME**.
 * With our analysis of chess, we saw how with a drawing rule complexity was limited to **PSPACE**, whereas without it, the problem WHITE-WINNING (Given this board position, does white have a winning sequence of moves?) is **EXPTIME**-complete.
 * Checkers, which typically has no drawing rules, has the same level of computational complexity as chess does without drawing rules. (That is, **EXPTIME**.)
-  * Even a conservative estimate puts solving checkers at requiring more than 1,000 petabytes of storage space, which shows how large numbers can get with faster growing complexity classes. [TODO replace conservative]
+  * Even a conservative estimate puts solving checkers at requiring more than 1,000 petabytes of storage space, which shows how large numbers can get with faster growing complexity classes.
 
-Below is a collection of the many dangling threads you may have spotted throughout this brief introduction. Each bullet point gives you the resources to pursue a topic outside of the scope of this introduction, as well as a few words on how to interpret what you find.
+Below are a few topics we felt like including so that one might do further research.
 
-* IP
-  * A computational class whose resources don’t exist in reality (all-powerful prover)
-  * We have a different resource now — proof queries! Different from time or space.
-  * IP == PSPACE? First example of an interesting computational complexity proof.
-* Combinatorial game theory [flesh out]
-  * https://combinatorialgametheory.blogspot.com/
-  * http://erikdemaine.org/papers/AlgGameTheory_GONC3/paper.pdf
-  * https://en.wikipedia.org/wiki/Combinatorial_game_theory
-* What is a  solved game?
+* What is a solved game?
   * A solved game is a game where given a state of the game, assuming all players play perfectly, the result can be determined.
   * A weakly solved game is when the above is true only given the starting state of the game, not any state.
   * Thoughtful klondike is a solved game, whereas traditional klondike is not due to the cards being initially obscured from the player.
@@ -166,7 +177,7 @@ Below is a collection of the many dangling threads you may have spotted througho
       * High decision complexity: many moves to consider for each turn
       * Moderate search space: many different possible game state
 
-### Checkers Specific Topics
+### Checkers-Specific Topics
 
   * Forced Capture?
     * Forced capture means that you must capture as many pieces as possible in your turn. 
@@ -182,7 +193,7 @@ Finally, here are some additional resources that we crammed in here. Go forth an
 
 [intro](#introduction)
   
-[^1]: [Cite: Nature of comp^2.]
+[^1]: http://nature-of-computation.org/
 
 [^2]: https://www.ics.uci.edu/~eppstein/cgt/hard.html
 
