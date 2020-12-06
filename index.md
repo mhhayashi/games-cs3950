@@ -126,15 +126,11 @@ Each position has 5 possibilities:
 
 There are N^2 locations on an N by N board.
 
-Thus, the total number of possibilities is \\(5^{N^2} = O(2^{N^2})\\). Thus, checkers is in EXPTIME, as _many_ of these positions could be reached in at least one way by normal play, and an algorithm has to go down every one! [further topics: machine learning of games vs. “solving” of games]
-
-[TODO fix wording above, note the big Oh, not big theta, clarify? (i replaced every one with many)]
+Thus, the total number of possibilities is \\(5^{N^2} = O(2^{N^2})\\). (Note that this is a very loose upper bound.) Thus, checkers is in EXPTIME, as _many_ of these positions could be reached in at least one way by normal play, and an algorithm has to go down every one! [further topics: machine learning of games vs. “solving” of games]
  
 Before getting to relating **EXPTIME** to **PSPACE** and **NP**, let’s talk numbers.
  
 A normal board is \\(8 \cdot 8\\), so let's see what \\(5^{8^2}\\) is: \\(5 \cdot 10^44\\).
-
-[TODO consider changing to 8^2 / 2]
 
 That is much larger than the number of grains of sand on the Earth: around \\(8 \cdot 10^{18}\\). [[^5]]
 
