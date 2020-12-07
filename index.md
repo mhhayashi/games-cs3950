@@ -96,7 +96,7 @@ However, this simplicity of checking assumes a rule in chess called the “fifty
  
 <a title="Jud McCranie, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:CheckersStandard.jpg"><img width="512" alt="CheckersStandard" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/CheckersStandard.jpg/512px-CheckersStandard.jpg"></a>
  
-Let’s take a look at checkers. We will examine the 8 x 8 version of English draughts with forced capture. [Tag further reading] There are many differences between klondike and checkers, but our main goal here is to introduce **EXPTIME**. 
+Let’s take a look at checkers. We will examine the 8 x 8 version of English draughts with forced capture. There are many differences between klondike and checkers, but our main goal here is to introduce **EXPTIME**. 
  
 Here’s the main question when it comes to checkers: which player will win? Clearly the better player will be favored, but when both players play perfectly the game is proven to be a draw. This makes checkers a “solved game” (see Further Reading for more about solved games). 
  
