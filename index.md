@@ -95,8 +95,6 @@ However, this simplicity of checking assumes a rule in chess called the “fifty
 ## CHECKERS: EXPTIME
  
 <a title="Jud McCranie, CC BY 3.0 &lt;https://creativecommons.org/licenses/by/3.0&gt;, via Wikimedia Commons" href="https://commons.wikimedia.org/wiki/File:CheckersStandard.jpg"><img width="512" alt="CheckersStandard" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f1/CheckersStandard.jpg/512px-CheckersStandard.jpg"></a>
-
-<small><a href="https://commons.wikimedia.org/wiki/File:CheckersStandard.jpg">Jud McCranie</a>, <a href="https://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>, via Wikimedia Commons</small>
  
 Let’s take a look at checkers. We will examine the 8 x 8 version of English draughts with forced capture. [Tag further reading] There are many differences between klondike and checkers, but our main goal here is to introduce **EXPTIME**. 
  
