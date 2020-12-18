@@ -122,7 +122,7 @@ Each position has 5 possibilities:
 
 There are N^2 locations on an N by N board.
 
-Thus, the total number of possibilities is \\(5^{N^2} = O(2^{N^2})\\). (Note that this is a very loose upper bound.) Thus, checkers is in EXPTIME, as _many_ of these positions could be reached in at least one way by normal play, and an algorithm has to go down every one! [further topics: machine learning of games vs. “solving” of games]
+Thus, the total number of possibilities is \\(5^{N^2}\\). (Note that this is a very loose upper bound.) Thus, checkers is in EXPTIME, as _many_ of these positions could be reached in at least one way by normal play, and an algorithm has to go down every one! [further topics: machine learning of games vs. “solving” of games]
  
 Before getting to relating **EXPTIME** to **PSPACE** and **NP**, let’s talk numbers.
  
