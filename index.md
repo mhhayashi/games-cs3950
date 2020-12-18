@@ -126,7 +126,7 @@ Thus, the total number of possibilities is \\(O(5^{N^2})\\). (Note that this is 
  
 Before getting to relating **EXPTIME** to **PSPACE** and **NP**, let’s talk numbers.
  
-A normal board is \\(8 \cdot 8\\), so let's see what \\(5^{8^2}\\) is: \\(5 \cdot 10^44\\).
+A normal board is \\(8 \cdot 8\\), so let's see what \\(5^{8^2}\\) is: \\(5 \cdot 10^{44}\\).
 
 That is much larger than the number of grains of sand on the Earth: around \\(8 \cdot 10^{18}\\). [[^5]]
 
